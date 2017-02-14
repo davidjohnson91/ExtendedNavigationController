@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewControllerB: UIViewController {
   lazy var testLabel: UILabel = {
     let label = UILabel()
-    label.text = "FOO BAR BAZ"
-    label.heightAnchor.constraint(equalToConstant: 100).isActive = true
+    label.text = "FE FI FO FUM"
+    label.heightAnchor.constraint(equalToConstant: 40).isActive = true
     
     return label
   }()
@@ -21,16 +21,16 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
   }
-
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-
-
+  
+  
 }
 
-extension ViewController: ExtendedNavigationControllerProvider {
+extension ViewControllerB: ExtendedNavigationControllerProvider {
   var extendedView: UIView? {
     return testLabel
   }

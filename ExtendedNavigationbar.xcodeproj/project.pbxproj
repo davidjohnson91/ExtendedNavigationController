@@ -12,6 +12,8 @@
 		3BA2BD591E4FE01600A7CCE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA2BD571E4FE01600A7CCE7 /* Main.storyboard */; };
 		3BA2BD5B1E4FE01600A7CCE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BA2BD5A1E4FE01600A7CCE7 /* Assets.xcassets */; };
 		3BA2BD5E1E4FE01600A7CCE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA2BD5C1E4FE01600A7CCE7 /* LaunchScreen.storyboard */; };
+		3BC78B5F1E5285DC00F71E17 /* ExtendedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC78B5E1E5285DC00F71E17 /* ExtendedNavigationController.swift */; };
+		3BC78B611E528E5200F71E17 /* ViewControllerB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC78B601E528E5200F71E17 /* ViewControllerB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		3BA2BD5A1E4FE01600A7CCE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BA2BD5D1E4FE01600A7CCE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BA2BD5F1E4FE01600A7CCE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BC78B5E1E5285DC00F71E17 /* ExtendedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendedNavigationController.swift; sourceTree = "<group>"; };
+		3BC78B601E528E5200F71E17 /* ViewControllerB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +60,12 @@
 			children = (
 				3BA2BD531E4FE01600A7CCE7 /* AppDelegate.swift */,
 				3BA2BD551E4FE01600A7CCE7 /* ViewController.swift */,
+				3BC78B601E528E5200F71E17 /* ViewControllerB.swift */,
 				3BA2BD571E4FE01600A7CCE7 /* Main.storyboard */,
 				3BA2BD5A1E4FE01600A7CCE7 /* Assets.xcassets */,
 				3BA2BD5C1E4FE01600A7CCE7 /* LaunchScreen.storyboard */,
 				3BA2BD5F1E4FE01600A7CCE7 /* Info.plist */,
+				3BC78B5E1E5285DC00F71E17 /* ExtendedNavigationController.swift */,
 			);
 			path = ExtendedNavigationbar;
 			sourceTree = "<group>";
@@ -96,6 +102,7 @@
 				TargetAttributes = {
 					3BA2BD4F1E4FE01600A7CCE7 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = FDTB39C3X2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -137,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BA2BD561E4FE01600A7CCE7 /* ViewController.swift in Sources */,
+				3BC78B611E528E5200F71E17 /* ViewControllerB.swift in Sources */,
+				3BC78B5F1E5285DC00F71E17 /* ExtendedNavigationController.swift in Sources */,
 				3BA2BD541E4FE01600A7CCE7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +269,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FDTB39C3X2;
 				INFOPLIST_FILE = ExtendedNavigationbar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.davidjohnson.ExtendedNavigationbar;
@@ -272,6 +282,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FDTB39C3X2;
 				INFOPLIST_FILE = ExtendedNavigationbar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.davidjohnson.ExtendedNavigationbar;
@@ -299,6 +310,7 @@
 				3BA2BD641E4FE01600A7CCE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
