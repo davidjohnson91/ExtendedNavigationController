@@ -32,28 +32,30 @@ public final class ExtendedNavigationController: UINavigationController {
 
 extension ExtendedNavigationController: UINavigationControllerDelegate {
   public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-    
+
     let layoutBlock = {
-      self.view.setNeedsLayout()
-      self.view.layoutIfNeeded()
+      self.fakeBackgroundView.setNeedsLayout()
+      self.fakeBackgroundView.layoutIfNeeded()
     }
-    
+
     insertExtendingView(from: viewController)
-    
-    navigationController.transitionCoordinator?.animate(alongsideTransition: { _ in
+    fakeBackgroundView.setNeedsLayout()
+    fakeBackgroundView.layoutIfNeeded()
+
+    guard let coordinator = transitionCoordinator else {
+      return
+    }
+
+    coordinator.animate(alongsideTransition: { _ in
       layoutBlock()
     }, completion: { context in
       guard context.isCancelled,
         let fromController = context.viewController(forKey: .from) else {
         return
       }
-      
+
       self.insertExtendingView(from: fromController)
-      layoutBlock()
     })
-  }
-  
-  public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
   }
 }
 
@@ -66,11 +68,7 @@ private extension ExtendedNavigationController {
     blurView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
     blurView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     blurView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-    
-    let defaultBottomConstraint = blurView.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor)
-    defaultBottomConstraint.priority = 999
-    defaultBottomConstraint.isActive = true
-    
+
     return blurView
   }
   
@@ -82,18 +80,20 @@ private extension ExtendedNavigationController {
     containerView.leadingAnchor.constraint(equalTo: navigationBar.leadingAnchor).isActive = true
     containerView.trailingAnchor.constraint(equalTo: navigationBar.trailingAnchor).isActive = true
     containerView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true
-    
+    let bottomAnchor = containerView.bottomAnchor.constraint(equalTo: fakeBackgroundView.contentView.bottomAnchor)
+    bottomAnchor.priority = 999
+    bottomAnchor.isActive = true
+
     return containerView
   }
   
   func insertExtendingView(from viewController: UIViewController) {
+    extendingContainer.subviews.forEach { $0.removeFromSuperview() }
+
     guard let extendingView = (viewController as? ExtendedNavigationControllerProvider)?.extendedView else {
       return
     }
-    
-    extendingView.removeFromSuperview()
-    extendingContainer.subviews.forEach { $0.removeFromSuperview() }
-    
+
     extendingContainer.addSubview(extendingView)
     
     extendingView.translatesAutoresizingMaskIntoConstraints = false
